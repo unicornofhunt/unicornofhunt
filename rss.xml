@@ -3,11 +3,11 @@
   <title>Unicorn Of Hunt</title>
   
   <subtitle>Unicorn Of Hunt</subtitle>
-  <link href="http://example.com/rss.xml" rel="self"/>
+  <link href="https://unicornofhunt.com/rss.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://unicornofhunt.com/"/>
   <updated>2025-05-19T13:11:49.233Z</updated>
-  <id>http://example.com/</id>
+  <id>https://unicornofhunt.com/</id>
   
   <author>
     <name>Unicorn</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Welcome to UnicornOfHunt</title>
-    <link href="http://example.com/2025/05/19/Welcome-to-UnicornOfHunt/"/>
-    <id>http://example.com/2025/05/19/Welcome-to-UnicornOfHunt/</id>
+    <link href="https://unicornofhunt.com/2025/05/19/Welcome-to-UnicornOfHunt/"/>
+    <id>https://unicornofhunt.com/2025/05/19/Welcome-to-UnicornOfHunt/</id>
     <published>2025-05-19T13:08:54.000Z</published>
     <updated>2025-05-19T13:11:49.233Z</updated>
     
@@ -35,7 +35,7 @@
     
     
     
-    <category term="cybersecurity, detection engineering" scheme="http://example.com/tags/cybersecurity-detection-engineering/"/>
+    <category term="cybersecurity, detection engineering" scheme="https://unicornofhunt.com/tags/cybersecurity-detection-engineering/"/>
     
   </entry>
   
