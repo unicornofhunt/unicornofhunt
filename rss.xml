@@ -6,7 +6,7 @@
   <link href="https://unicornofhunt.com/rss.xml" rel="self"/>
   
   <link href="https://unicornofhunt.com/"/>
-  <updated>2025-05-19T13:11:49.233Z</updated>
+  <updated>2025-05-22T13:23:13.319Z</updated>
   <id>https://unicornofhunt.com/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="https://unicornofhunt.com/2025/05/19/Welcome-to-UnicornOfHunt/"/>
     <id>https://unicornofhunt.com/2025/05/19/Welcome-to-UnicornOfHunt/</id>
     <published>2025-05-19T13:08:54.000Z</published>
-    <updated>2025-05-19T13:11:49.233Z</updated>
+    <updated>2025-05-22T13:23:13.319Z</updated>
     
-    <content type="html"><![CDATA[<p>This is the start of something big: a blog about breaking things, defending them, and hunting unicorns in the logs.</p>]]></content>
+    <content type="html"><![CDATA[<p>This is the start of something big: a blog about breaking things, defending them, and hunting unicorns in the logs.</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Testing code block</span><br></pre></td></tr></table></figure><img src="/images/hacker-cat.jpg" alt="Hacker Cat" width="500" />]]></content>
     
     
       
       
     <summary type="html">&lt;p&gt;This is the start of something big: a blog about breaking things, defending them, and hunting unicorns in the logs.&lt;/p&gt;
-</summary>
+&lt;figure class=&quot;hi</summary>
       
     
     
