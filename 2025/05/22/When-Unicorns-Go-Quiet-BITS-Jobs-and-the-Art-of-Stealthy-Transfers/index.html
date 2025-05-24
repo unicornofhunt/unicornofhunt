@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    p{
+        margin-top: 0 !important;
+        margin-bottom: 1rem !important;
+        font-size: 1.1rem;
+    }
+    figure{
+        margin: 0 !important;
+    }
+    pre{
+        padding: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 1rem !important;
+    }
+
+    td{
+        padding: 0 !important;
+        margin-bottom: 1rem !important;
+    }
+    h1,h2,h3,h4,h5,h6{
+        margin-top: 0 !important;
+        margin-bottom: 1rem !important;
+    }
+    @media (min-width: 1024px) {
+        #middle-box{
+            min-width: 56rem;
+        }
+    
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unicorn Of Hunt - When Unicorns Go Quiet: BITS Jobs and the Art of Stealthy Transfers</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/toc.css">
+    
+<header class="bg-black text-hacker-white py-4 font-dos font-extrabold">
+    <div class="container mx-auto flex items-center justify-between space-x-8">
+    
+      <h1 class="text-2xl font-bold ml-[100px] md:ml-0 animate-pulse text-hacker-color1 md:mr-[20%]">
+        <a href="/" class="hover:text-white transition-colors select-none">
+          Unicorn Of Hunt
+        </a>
+      </h1>
+  
+    <!-- 大屏幕 -->
+      <nav class="hidden md:block">
+        <ul class="flex space-x-6">
+          
+            <li>
+              <a href="/" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Home
+              </a>
+            </li>
+          
+            <li>
+              <a href="/archives" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Archives
+              </a>
+            </li>
+          
+            <li>
+              <a href="/tags" class="select-none text-lg hover:text-hacker-color1 transition-all hover:underline decoration-wavy duration-300 text-hacker-color3">
+                Tags
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+  
+      <!-- 小屏幕 -->
+      <button id="menu-toggle" class="block md:hidden text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  
+    <!-- 折叠菜单 -->
+    <nav id="mobile-menu" class="hidden bg-black">
+      <ul class="space-y-2 py-4 px-6">
+        
+          <li>
+            <a href="/" class="block text-white hover:text-hacker-color1 transition-colors">
+              Home
+            </a>
+          </li>
+        
+          <li>
+            <a href="/archives" class="block text-white hover:text-hacker-color1 transition-colors">
+              Archives
+            </a>
+          </li>
+        
+          <li>
+            <a href="/tags" class="block text-white hover:text-hacker-color1 transition-colors">
+              Tags
+            </a>
+          </li>
+        
+      </ul>
+    </nav>
+  
+    <!-- RSS Link -->
+    <link rel="alternate" type="application/rss+xml" title=" RSS" href="/rss.xml" />
+  </header>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/js/search.js"></script>
+  <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuToggle.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("hidden")) {
+        mobileMenu.classList.remove("hidden");
+        } else {
+        mobileMenu.classList.add("hidden");
+        }
+    });
+    });
+
+  </script>
+  
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body class="bg-black text-hacker-color3 container mx-auto" style="overflow-x:hidden">
+    <!-- 文章标题 -->
+    <h1 class="text-5xl text-hacker-color1 font-bold font-dos my-6 text-center">When Unicorns Go Quiet: BITS Jobs and the Art of Stealthy Transfers</h1>
+
+    <!-- 发布时间 -->
+    <p class="text-hacker-color3 text-center text-sm mb-4">
+        2025-05-22
+    </p>
+
+    <!-- 文章内容 -->
+    <div id="article-content" class="article-entry prose prose-invert mx-auto max-w-4xl leading-relaxed highlight" style="display: flex;">
+        <div id="middle-box">
+            <p>During my exploration of offensive techniques, I’ve always been particularly interested in abuses of built-in Windows mechanisms. One such technique involves <strong>Background Intelligent Transfer Service (BITS) Jobs</strong>. For a solid overview of its relevance in cybersecurity, see the <a target="_blank" rel="noopener" href="https://attack.mitre.org/techniques/T1197/">MITRE ATT&amp;CK page for T1197</a>.</p>
+<p>However, I often feel that <strong>LOLBINs</strong> are a bit overhyped. Focusing detection solely on the use of a single binary—like <code>bitsadmin.exe</code>—via process creation events leaves gaps. If an adversary skips <code>bitsadmin</code> and instead uses the <strong>BITS COM interface</strong>, they can easily bypass many standard detections.</p>
+<p>There is a lot of Sigma detection rules that you can bypass if you would avoid usage of bitsadmin:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/SigmaHQ/sigma/tree/master/rules/windows/process_creation">https://github.com/SigmaHQ/sigma/tree/master/rules/windows/process_creation</a> (ctrl+f bits). Example:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download.yml">https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download.yml</a></p>
+<p>I highly recommend checkin out <strong>Pavel Yosifovich</strong> take on the topic and his code which you can use to implement this functionality:</p>
+<ul>
+<li>📺 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=JvpWDirjoZI">Pavel’s video</a>  </li>
+<li>💻 <a target="_blank" rel="noopener" href="https://github.com/zodiacon/youtubecode/blob/main/BitsDemo/BitsDemo/BitsDemo.cpp">Pavel’s code on GitHub</a></li>
+</ul>
+<p>We just established an idea that we can download files with the usage of BITS without invoking bitsadmin, the only question that is left is to check what telemetry is being generated when BITS Job is created.</p>
+<p>I am testing the functionality with the below piece of code:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;windows.h&gt;</span><br><span class="line">#include &lt;bits.h&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;comdef.h&gt;  // For _com_error</span><br><span class="line"></span><br><span class="line">#pragma comment(lib, &quot;ole32.lib&quot;)</span><br><span class="line">#pragma comment(lib, &quot;bits.lib&quot;)</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    HRESULT hr = CoInitializeEx(NULL, COINIT_MULTITHREADED);</span><br><span class="line">    if (FAILED(hr))</span><br><span class="line">    &#123;</span><br><span class="line">        std::cerr &lt;&lt; &quot;CoInitializeEx failed: 0x&quot; &lt;&lt; std::hex &lt;&lt; hr &lt;&lt; std::endl;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    IBackgroundCopyManager* pManager = nullptr;</span><br><span class="line">    hr = CoCreateInstance(__uuidof(BackgroundCopyManager), NULL, CLSCTX_LOCAL_SERVER, IID_PPV_ARGS(&amp;pManager));</span><br><span class="line">    if (FAILED(hr))</span><br><span class="line">    &#123;</span><br><span class="line">        std::cerr &lt;&lt; &quot;CoCreateInstance for BackgroundCopyManager failed: 0x&quot; &lt;&lt; std::hex &lt;&lt; hr &lt;&lt; std::endl;</span><br><span class="line">        CoUninitialize();</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    IBackgroundCopyJob* pJob = nullptr;</span><br><span class="line">    GUID jobId;</span><br><span class="line"></span><br><span class="line">    // Create a new BITS job</span><br><span class="line">    hr = pManager-&gt;CreateJob(</span><br><span class="line">        L&quot;EVIL UNICORN JOB&quot;,                // Job name</span><br><span class="line">        BG_JOB_TYPE_DOWNLOAD,                  // Job type (download)</span><br><span class="line">        &amp;jobId,</span><br><span class="line">        &amp;pJob);</span><br><span class="line">    if (FAILED(hr))</span><br><span class="line">    &#123;</span><br><span class="line">        std::cerr &lt;&lt; &quot;CreateJob failed: 0x&quot; &lt;&lt; std::hex &lt;&lt; hr &lt;&lt; std::endl;</span><br><span class="line">        pManager-&gt;Release();</span><br><span class="line">        CoUninitialize();</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Add file to download</span><br><span class="line">    // Source URL (must be wide string)</span><br><span class="line">    const wchar_t* fileUrl = L&quot;https://raw.githubusercontent.com/olafhartong/sysmon-modular/refs/heads/master/7_image_load/include_bitsproxy.xml&quot;;</span><br><span class="line">    // Destination file path</span><br><span class="line">    const wchar_t* destPath = L&quot;C:\\Windows\\Tasks\\evil.txt&quot;;</span><br><span class="line"></span><br><span class="line">    hr = pJob-&gt;AddFile(fileUrl, destPath);</span><br><span class="line">    if (FAILED(hr))</span><br><span class="line">    &#123;</span><br><span class="line">        std::cerr &lt;&lt; &quot;AddFile failed: 0x&quot; &lt;&lt; std::hex &lt;&lt; hr &lt;&lt; std::endl;</span><br><span class="line">        pJob-&gt;Release();</span><br><span class="line">        pManager-&gt;Release();</span><br><span class="line">        CoUninitialize();</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Resume the job to start downloading</span><br><span class="line">    hr = pJob-&gt;Resume();</span><br><span class="line">    if (FAILED(hr))</span><br><span class="line">    &#123;</span><br><span class="line">        std::cerr &lt;&lt; &quot;Resume failed: 0x&quot; &lt;&lt; std::hex &lt;&lt; hr &lt;&lt; std::endl;</span><br><span class="line">        pJob-&gt;Release();</span><br><span class="line">        pManager-&gt;Release();</span><br><span class="line">        CoUninitialize();</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; &quot;BITS download started...\n&quot;;</span><br><span class="line"></span><br><span class="line">    // Wait for job to finish</span><br><span class="line">    BG_JOB_STATE state;</span><br><span class="line">    do</span><br><span class="line">    &#123;</span><br><span class="line">        Sleep(1000); // Wait 1 second</span><br><span class="line"></span><br><span class="line">        hr = pJob-&gt;GetState(&amp;state);</span><br><span class="line">        if (FAILED(hr))</span><br><span class="line">        &#123;</span><br><span class="line">            std::cerr &lt;&lt; &quot;GetState failed: 0x&quot; &lt;&lt; std::hex &lt;&lt; hr &lt;&lt; std::endl;</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        switch (state)</span><br><span class="line">        &#123;</span><br><span class="line">        case BG_JOB_STATE_QUEUED:       std::cout &lt;&lt; &quot;Job queued...\n&quot;; break;</span><br><span class="line">        case BG_JOB_STATE_CONNECTING:   std::cout &lt;&lt; &quot;Connecting...\n&quot;; break;</span><br><span class="line">        case BG_JOB_STATE_TRANSFERRING: std::cout &lt;&lt; &quot;Transferring...\n&quot;; break;</span><br><span class="line">        case BG_JOB_STATE_SUSPENDED:    std::cout &lt;&lt; &quot;Suspended.\n&quot;; break;</span><br><span class="line">        case BG_JOB_STATE_ERROR:         std::cout &lt;&lt; &quot;Error!\n&quot;; break;</span><br><span class="line">        case BG_JOB_STATE_TRANSFERRED:  std::cout &lt;&lt; &quot;Transferred.\n&quot;; break;</span><br><span class="line">        case BG_JOB_STATE_ACKNOWLEDGED: std::cout &lt;&lt; &quot;Acknowledged.\n&quot;; break;</span><br><span class="line">        case BG_JOB_STATE_CANCELLED:    std::cout &lt;&lt; &quot;Cancelled.\n&quot;; break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; while (state != BG_JOB_STATE_TRANSFERRED &amp;&amp; state != BG_JOB_STATE_ERROR &amp;&amp; state != BG_JOB_STATE_CANCELLED);</span><br><span class="line"></span><br><span class="line">    if (state == BG_JOB_STATE_TRANSFERRED)</span><br><span class="line">    &#123;</span><br><span class="line">        // Complete the job to move file from temp cache to final location</span><br><span class="line">        hr = pJob-&gt;Complete();</span><br><span class="line">        if (SUCCEEDED(hr))</span><br><span class="line">        &#123;</span><br><span class="line">            std::cout &lt;&lt; &quot;Download completed successfully.\n&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            std::cerr &lt;&lt; &quot;Complete failed: 0x&quot; &lt;&lt; std::hex &lt;&lt; hr &lt;&lt; std::endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    else if (state == BG_JOB_STATE_ERROR)</span><br><span class="line">    &#123;</span><br><span class="line">        // Retrieve error info</span><br><span class="line">        IBackgroundCopyError* pError = nullptr;</span><br><span class="line">        hr = pJob-&gt;GetError(&amp;pError);</span><br><span class="line">        if (SUCCEEDED(hr))</span><br><span class="line">        &#123;</span><br><span class="line">            BG_ERROR_CONTEXT context;</span><br><span class="line">            HRESULT errorHr;</span><br><span class="line">            pError-&gt;GetError(&amp;context, &amp;errorHr);</span><br><span class="line"></span><br><span class="line">            std::wcerr &lt;&lt; L&quot;BITS job error. Context: &quot; &lt;&lt; context &lt;&lt; L&quot;, HRESULT: 0x&quot; &lt;&lt; std::hex &lt;&lt; errorHr &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">            pError-&gt;Release();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    else if (state == BG_JOB_STATE_CANCELLED)</span><br><span class="line">    &#123;</span><br><span class="line">        std::cout &lt;&lt; &quot;BITS job was cancelled.\n&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // Cleanup</span><br><span class="line">    pJob-&gt;Release();</span><br><span class="line">    pManager-&gt;Release();</span><br><span class="line">    CoUninitialize();</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>While performing debbuging we can see all the loaded modules (COM Instance not yet created):</p>
+<img src="/images/modules_before.png" alt="Loaded Modules Before"/>
+
+<p>After 19th line of code is run we can see that bunch of new DLLs were loaded:</p>
+<img src="/images/modules_after.png" alt="Loaded Modules After"/>
+
+<p>Especially, interesting for us is: BitsProxy.dll.</p>
+<p>We should observe the Sysmon Image load events being generated from this activity (given the proper configuration):</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/olafhartong/sysmon-modular/blob/master/7_image_load/include_bitsproxy.xml">https://github.com/olafhartong/sysmon-modular/blob/master/7_image_load/include_bitsproxy.xml</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;Sysmon schemaversion=&quot;4.40&quot;&gt;</span><br><span class="line">  &lt;EventFiltering&gt;</span><br><span class="line">    &lt;RuleGroup name=&quot;&quot; groupRelation=&quot;or&quot;&gt;</span><br><span class="line">      &lt;ImageLoad onmatch=&quot;include&quot;&gt;</span><br><span class="line">        &lt;ImageLoaded name=&quot;technique_id=T1197,technique_name=BITS&quot; condition=&quot;end with&quot;&gt;bitsproxy.dll&lt;/ImageLoaded&gt;</span><br><span class="line">      &lt;/ImageLoad&gt;</span><br><span class="line">    &lt;/RuleGroup&gt;</span><br><span class="line">  &lt;/EventFiltering&gt;</span><br><span class="line">&lt;/Sysmon&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Image loaded:</span><br><span class="line">RuleName: technique_id=T1197,technique_name=BITS</span><br><span class="line">UtcTime: 2025-05-24 12:32:29.181</span><br><span class="line">ProcessGuid: &#123;f4a83506-bc48-6831-cc09-000000001100&#125;</span><br><span class="line">ProcessId: 11652</span><br><span class="line">Image: C:\Users\unicorn\source\repos\BITSD\x64\Debug\BITSD.exe</span><br><span class="line">ImageLoaded: C:\Windows\System32\BitsProxy.dll</span><br><span class="line">FileVersion: 7.8.26100.1882 (WinBuild.160101.0800)</span><br><span class="line">Description: Background Intelligent Transfer Service Proxy</span><br><span class="line">Product: Microsoft® Windows® Operating System</span><br><span class="line">Company: Microsoft Corporation</span><br><span class="line">OriginalFileName: qmgrprxy.dll</span><br><span class="line">Hashes: SHA1=DDE59105E322DD0742FD582DE685B98C731B21C0,MD5=FDC8DFDBCFDC7637CEA74CECF9D580AB,SHA256=39B245CD0BF0F27241AAAFBB317AEC0D7D01DBF7750851EEF37BB319255C214D,IMPHASH=E68B2C7E33E04DC8081D5A96FEB7F59A</span><br><span class="line">Signed: true</span><br><span class="line">Signature: Microsoft Windows</span><br><span class="line">SignatureStatus: Valid</span><br><span class="line">User: unicorn\unicorn</span><br></pre></td></tr></table></figure>
+
+<p>So our first idea would be to detect unknown executables that are loading <code>BitsProxy.dll</code>. In Sentinel we could do this with (semi-parsed ImageLoad)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Event</span><br><span class="line">| where EventID == 7</span><br><span class="line">    | parse-kv EventData as (</span><br><span class="line">          ProcessGuid:string, </span><br><span class="line">          ProcessId:string,</span><br><span class="line">          Image:string,</span><br><span class="line">          ImageLoaded:string,</span><br><span class="line">          FileVersion:string,</span><br><span class="line">          Description:string,</span><br><span class="line">          Product:string,</span><br><span class="line">          Company:string,</span><br><span class="line">          OriginalFileName:string,</span><br><span class="line">          CommandLine:string,</span><br><span class="line">          CurrentDirectory:string,</span><br><span class="line">          User:string,</span><br><span class="line">          LogonGuid:string, </span><br><span class="line">          LogonId:string,</span><br><span class="line">          IntegrityLevel:string,</span><br><span class="line">          Hashes:string,</span><br><span class="line">          Signed:string,</span><br><span class="line">          Signature:string,</span><br><span class="line">          SignatureStatus:string,</span><br><span class="line">        ) </span><br><span class="line">        with (regex=@&#x27;&lt;Data Name=&quot;(\w+)&quot;&gt;&#123;?([^&lt;]*?)&#125;?&lt;/Data&gt;&#x27;)</span><br><span class="line">|where ImageLoaded has &quot;BitsProxy&quot;</span><br><span class="line">|project TimeGenerated, ImageLoaded, Image, Description, User, Computer, Signature, SignatureStatus, Signed</span><br></pre></td></tr></table></figure>
+
+<img src="/images/bitsproxyloadevent.png" alt="ImageLoad Bits Proxy"/>
+
+<p>What’s also interesting is the fact that svchost.exe will be spawned and it will also load <code>BitsProxy.dll</code>. The same svchost.exe is then responsible for downloading the content. </p>
+<p>We will observe also this svchost.exe creating our file, however, it will only be visible by creating this temporary BITS file:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">File created: RuleName: - UtcTime: 2025-05-24 12:59:08.244 ProcessGuid: &#123;F4A83506-C297-6831-F20A-000000001100&#125; ProcessId: 13524 Image: C:\WINDOWS\System32\svchost.exe TargetFilename: C:\Windows\Tasks\BITE39A.tmp CreationUtcTime: 2025-05-24 12:59:07.873 User: NT AUTHORITY\SYSTEM </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dns query: RuleName: - UtcTime: 2025-05-24 12:59:07.944 ProcessGuid: &#123;F4A83506-C297-6831-F20A-000000001100&#125; ProcessId: 13524 QueryName: raw.githubusercontent.com QueryStatus: 0 QueryResults: ::ffff:185.199.108.133;::ffff:185.199.111.133;::ffff:185.199.109.133;::ffff:185.199.110.133; Image: C:\Windows\System32\svchost.exe User: NT AUTHORITY\SYSTEM </span><br></pre></td></tr></table></figure>
+
+<p>NOTE: Sysmon Event ID 3 would also generate, it was lacking in my Sysmon Modular configuration, I would guess due to significant number of potential noise events. Still, if Event ID 22 (DNS Query) is there then Event ID 3 should also generate.</p>
+<p>Looking for svchost.exe would seem to lead to many false positives, only interesting if you want to know if there was ANY BITS Job created, or perhaps you would want to track creation of BITS Temp files in some weird directories - like <code>C:\Windows\Tasks\</code> etc.</p>
+<p>This is very cool from the offensive point of view, as you are successfully “detaching” the download activity from your potentially malicious process.</p>
+<p>That’s all cool and rainbows when you create your own binary, can we do it simpler? Surprisingly, the answer is yes, lol.</p>
+<p>Yuu an simply utilize <code>PowerShell</code> one liner:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Start-BitsTransfer -DisplayName &quot;BITSJOBFROMPOWERSHELL&quot; -Source &quot;https://raw.githubusercontent.com/olafhartong/sysmon-modular/master/7_image_load/exclude_cscript_scrobj.xml&quot; -Destination &quot;C:\Windows\Tasks\exclude_cscript_scrobj.xml&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;DataItem type=&quot;System.XmlData&quot; time=&quot;2025-05-24T06:26:04.7586679-07:00&quot; sourceHealthServiceId=&quot;A18FEB8F-23F9-A8C4-0E93-245BABEE7B44&quot;&gt;&lt;EventData xmlns=&quot;http://schemas.microsoft.com/win/2004/08/events/event&quot;&gt;&lt;Data Name=&quot;RuleName&quot;&gt;technique_id=T1197,technique_name=BITS&lt;/Data&gt;&lt;Data Name=&quot;UtcTime&quot;&gt;2025-05-24 13:26:04.749&lt;/Data&gt;&lt;Data Name=&quot;ProcessGuid&quot;&gt;&#123;f4a83506-c8dd-6831-6a0b-000000001100&#125;&lt;/Data&gt;&lt;Data Name=&quot;ProcessId&quot;&gt;14356&lt;/Data&gt;&lt;Data Name=&quot;Image&quot;&gt;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe&lt;/Data&gt;&lt;Data Name=&quot;ImageLoaded&quot;&gt;C:\Windows\System32\BitsProxy.dll&lt;/Data&gt;&lt;Data Name=&quot;FileVersion&quot;&gt;7.8.26100.1882 (WinBuild.160101.0800)&lt;/Data&gt;&lt;Data Name=&quot;Description&quot;&gt;Background Intelligent Transfer Service Proxy&lt;/Data&gt;&lt;Data Name=&quot;Product&quot;&gt;Microsoft® Windows® Operating System&lt;/Data&gt;&lt;Data Name=&quot;Company&quot;&gt;Microsoft Corporation&lt;/Data&gt;&lt;Data Name=&quot;OriginalFileName&quot;&gt;qmgrprxy.dll&lt;/Data&gt;&lt;Data Name=&quot;Hashes&quot;&gt;SHA1=DDE59105E322DD0742FD582DE685B98C731B21C0,MD5=FDC8DFDBCFDC7637CEA74CECF9D580AB,SHA256=39B245CD0BF0F27241AAAFBB317AEC0D7D01DBF7750851EEF37BB319255C214D,IMPHASH=E68B2C7E33E04DC8081D5A96FEB7F59A&lt;/Data&gt;&lt;Data Name=&quot;Signed&quot;&gt;true&lt;/Data&gt;&lt;Data Name=&quot;Signature&quot;&gt;Microsoft Windows&lt;/Data&gt;&lt;Data Name=&quot;SignatureStatus&quot;&gt;Valid&lt;/Data&gt;&lt;Data Name=&quot;User&quot;&gt;unicorn\unicorn&lt;/Data&gt;&lt;/EventData&gt;&lt;/DataItem&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Again svchost is also spawned:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;DataItem type=&quot;System.XmlData&quot; time=&quot;2025-05-24T06:26:04.7583783-07:00&quot; sourceHealthServiceId=&quot;A18FEB8F-23F9-A8C4-0E93-245BABEE7B44&quot;&gt;&lt;EventData xmlns=&quot;http://schemas.microsoft.com/win/2004/08/events/event&quot;&gt;&lt;Data Name=&quot;RuleName&quot;&gt;technique_id=T1197,technique_name=BITS&lt;/Data&gt;&lt;Data Name=&quot;UtcTime&quot;&gt;2025-05-24 13:26:04.747&lt;/Data&gt;&lt;Data Name=&quot;ProcessGuid&quot;&gt;&#123;f4a83506-c8e8-6831-700b-000000001100&#125;&lt;/Data&gt;&lt;Data Name=&quot;ProcessId&quot;&gt;14680&lt;/Data&gt;&lt;Data Name=&quot;Image&quot;&gt;C:\Windows\System32\svchost.exe&lt;/Data&gt;&lt;Data Name=&quot;ImageLoaded&quot;&gt;C:\Windows\System32\BitsProxy.dll&lt;/Data&gt;&lt;Data Name=&quot;FileVersion&quot;&gt;7.8.26100.1882 (WinBuild.160101.0800)&lt;/Data&gt;&lt;Data Name=&quot;Description&quot;&gt;Background Intelligent Transfer Service Proxy&lt;/Data&gt;&lt;Data Name=&quot;Product&quot;&gt;Microsoft® Windows® Operating System&lt;/Data&gt;&lt;Data Name=&quot;Company&quot;&gt;Microsoft Corporation&lt;/Data&gt;&lt;Data Name=&quot;OriginalFileName&quot;&gt;qmgrprxy.dll&lt;/Data&gt;&lt;Data Name=&quot;Hashes&quot;&gt;SHA1=DDE59105E322DD0742FD582DE685B98C731B21C0,MD5=FDC8DFDBCFDC7637CEA74CECF9D580AB,SHA256=39B245CD0BF0F27241AAAFBB317AEC0D7D01DBF7750851EEF37BB319255C214D,IMPHASH=E68B2C7E33E04DC8081D5A96FEB7F59A&lt;/Data&gt;&lt;Data Name=&quot;Signed&quot;&gt;true&lt;/Data&gt;&lt;Data Name=&quot;Signature&quot;&gt;Microsoft Windows&lt;/Data&gt;&lt;Data Name=&quot;SignatureStatus&quot;&gt;Valid&lt;/Data&gt;&lt;Data Name=&quot;User&quot;&gt;NT AUTHORITY\SYSTEM&lt;/Data&gt;&lt;/EventData&gt;&lt;/DataItem&gt;</span><br></pre></td></tr></table></figure>
+
+<p>The same svchost.exe creates temporary BITS file:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;DataItem type=&quot;System.XmlData&quot; time=&quot;2025-05-24T06:26:05.1491514-07:00&quot; sourceHealthServiceId=&quot;A18FEB8F-23F9-A8C4-0E93-245BABEE7B44&quot;&gt;&lt;EventData xmlns=&quot;http://schemas.microsoft.com/win/2004/08/events/event&quot;&gt;&lt;Data Name=&quot;RuleName&quot;&gt;-&lt;/Data&gt;&lt;Data Name=&quot;UtcTime&quot;&gt;2025-05-24 13:26:05.148&lt;/Data&gt;&lt;Data Name=&quot;ProcessGuid&quot;&gt;&#123;f4a83506-c8e8-6831-700b-000000001100&#125;&lt;/Data&gt;&lt;Data Name=&quot;ProcessId&quot;&gt;14680&lt;/Data&gt;&lt;Data Name=&quot;Image&quot;&gt;C:\WINDOWS\System32\svchost.exe&lt;/Data&gt;&lt;Data Name=&quot;TargetFilename&quot;&gt;C:\Windows\Tasks\BIT8F95.tmp&lt;/Data&gt;&lt;Data Name=&quot;CreationUtcTime&quot;&gt;2025-05-24 13:26:04.772&lt;/Data&gt;&lt;Data Name=&quot;User&quot;&gt;NT AUTHORITY\SYSTEM&lt;/Data&gt;&lt;/EventData&gt;&lt;/DataItem&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Of course, in the situation of BITS Jobs there is Event Log <code>Microsoft-Windows-Bits-Client/Operational</code>, which is superior in providing us with actual details on what has happened:</p>
+<p><code>Event ID 3</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;DataItem type=&quot;System.XmlData&quot; time=&quot;2025-05-24T05:59:07.8700635-07:00&quot; sourceHealthServiceId=&quot;A18FEB8F-23F9-A8C4-0E93-245BABEE7B44&quot;&gt;&lt;EventData xmlns=&quot;http://schemas.microsoft.com/win/2004/08/events/event&quot;&gt;&lt;Data Name=&quot;jobTitle&quot;&gt;EVIL UNICORN JOB&lt;/Data&gt;&lt;Data Name=&quot;jobId&quot;&gt;&#123;7f68cced-f925-4864-9525-37b40b3496d7&#125;&lt;/Data&gt;&lt;Data Name=&quot;jobOwner&quot;&gt;unicorn\unicorn&lt;/Data&gt;&lt;Data Name=&quot;processPath&quot;&gt;C:\Users\unicorn\source\repos\BITSD\x64\Debug\BITSD.exe&lt;/Data&gt;&lt;Data Name=&quot;processId&quot;&gt;12796&lt;/Data&gt;&lt;Data Name=&quot;ClientProcessStartKey&quot;&gt;4785074604083945&lt;/Data&gt;&lt;/EventData&gt;&lt;/DataItem&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>Event ID 16403</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;DataItem type=&quot;System.XmlData&quot; time=&quot;2025-05-24T05:59:07.8893135-07:00&quot; sourceHealthServiceId=&quot;A18FEB8F-23F9-A8C4-0E93-245BABEE7B44&quot;&gt;&lt;EventData xmlns=&quot;http://schemas.microsoft.com/win/2004/08/events/event&quot;&gt;&lt;Data Name=&quot;User&quot;&gt;unicorn\unicorn&lt;/Data&gt;&lt;Data Name=&quot;jobTitle&quot;&gt;EVIL UNICORN JOB&lt;/Data&gt;&lt;Data Name=&quot;jobId&quot;&gt;&#123;7f68cced-f925-4864-9525-37b40b3496d7&#125;&lt;/Data&gt;&lt;Data Name=&quot;jobOwner&quot;&gt;unicorn\unicorn&lt;/Data&gt;&lt;Data Name=&quot;fileCount&quot;&gt;1&lt;/Data&gt;&lt;Data Name=&quot;RemoteName&quot;&gt;https://raw.githubusercontent.com/olafhartong/sysmon-modular/refs/heads/master/7_image_load/include_bitsproxy.xml&lt;/Data&gt;&lt;Data Name=&quot;LocalName&quot;&gt;C:\Windows\Tasks\evil.txt&lt;/Data&gt;&lt;Data Name=&quot;processId&quot;&gt;12796&lt;/Data&gt;&lt;Data Name=&quot;ClientProcessStartKey&quot;&gt;4785074604083945&lt;/Data&gt;&lt;/EventData&gt;&lt;/DataItem&gt;</span><br></pre></td></tr></table></figure>
+
+<p>To sum up:</p>
+<ul>
+<li><code>Microsoft-Windows-Bits-Client/Operational</code> provides you with the best visibility </li>
+<li>Don’t rely on process creation events for <code>bitsadmin</code> as it is quite easy to bypass.</li>
+<li>There are quite few artifacts that are generated.</li>
+<li>Can do it from PowerShell too, you could also look for <code>4104s</code>.</li>
+<li>Looking for processes that load <code>BitsProxy.dll</code> could be an interesting hunting expedition and potentially a proper detection after testing and baselining.</li>
+</ul>
+
+        </div>
+        
+    </div>
+
+
+    <!-- 返回主页链接 -->
+    <div class="text-center my-8">
+        <a href="/" class="text-hacker-color1 underline hover:text-hacker-color2">← Back to Home</a>
+    </div>
+
+      
+      <script src="/js/toc.js"></script>  <!-- 引入 TOC 逻辑 -->
+      
+      
+
+    <footer class="bg-black text-gray-400 py-4">
+    <div class="container mx-auto text-center">
+      <p>© <span id="current-year"></span>  Unicorn 
+        <br> Powered by <a class="hover:text-white duration-150 hover:underline decoration-slice" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> & <a class="hover:text-white duration-150 hover:underline decoration-slice" target="_blank" rel="noopener" href="https://github.com/m310ct/hexo-theme-hexploit">Hexpolit</a></p>
+    </div>
+  </footer>
+  
+  <script> 
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+  
+
+
+</body>
+</html>
